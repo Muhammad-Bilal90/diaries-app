@@ -42,10 +42,20 @@ import { showAlert } from '../util';
 const http: AxiosInstance = axios.create({
   baseURL: 'https://diaries.app',
   // headers: {'Access-Control-Allow-Origin': '*'}
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
+  }  
 });
 
 http.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+http.defaults.headers.get['Content-Type'] = 'application/json;charset=utf-8';
+http.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
+http.defaults.headers.delete['Content-Type'] = 'application/json;charset=utf-8';
+http.defaults.headers.delete['Access-Control-Allow-Origin'] = '*';
+http.defaults.headers.put['Content-Type'] = 'application/json;charset=utf-8';
+http.defaults.headers.put['Access-Control-Allow-Origin'] = '*';
 
 http.interceptors.response.use(
   async (response: AxiosResponse): Promise<any> => {
