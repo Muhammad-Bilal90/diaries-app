@@ -15,7 +15,7 @@ const Home: FC = () => {
 
     useEffect(() => {
         user && user?.id && dispatch(getDiaries(user?.id))
-    }, [dispatch]);
+    }, [dispatch, user]);
 
     return(
         <>

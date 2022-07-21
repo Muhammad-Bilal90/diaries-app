@@ -14,7 +14,6 @@ import { RootState } from "../../Store/rootReducer";
 import { createDiary, updateDiary } from "../../Features/Diary/diarySlice";
 import { showAlert } from "../../util";
 import { makeStyles } from '@mui/styles';
-import { grey } from "@mui/material/colors";
 // import Loading from "./Loading.component";
 
 const useStyles = makeStyles({

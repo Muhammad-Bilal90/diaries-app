@@ -14,7 +14,7 @@ const Login: FC = () => {
 
   const navigateto = useNavigate();
 
-  const { loading, authenticated } = useSelector(
+  const { loading } = useSelector(
     (state: RootState) => state.auth
   );
   const dispatch = useAppDispatch();

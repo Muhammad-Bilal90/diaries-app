@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./Store/rootReducer";
 import Login from "./Components/Login/login";

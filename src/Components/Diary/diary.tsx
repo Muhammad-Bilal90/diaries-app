@@ -1,9 +1,8 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store/rootReducer";
 import { Entry } from "../../Interfaces/entry.interface";
 import http from "../../Services/api";
-import { useAppDispatch } from "../../Store/index";
 import DiaryModal from "../DiaryModal/diaryModal";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -49,7 +48,6 @@ const Diary: FC<Props> = ({ id, title, type }) => {
   const [count, setCount] = useState(0);
 
   const { diaries } = useSelector((state: RootState) => state.diary);
-  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const currentDiary = diaries.filter((diary) => diary?.id === id);
@@ -60,7 +58,7 @@ const Diary: FC<Props> = ({ id, title, type }) => {
       .then(({ entries }) => {
         setCount(entries.length);
       });
-  }, [diaries]);
+  }, [diaries, id]);
 
   return (
     <>

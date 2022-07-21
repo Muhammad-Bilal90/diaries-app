@@ -202,7 +202,6 @@ function EntryModal({
   mode,
 }: Props): ReactElement {
   const classes = useStyles();
-  const { user } = useSelector((state: RootState) => state.auth);
   const { loading } = useSelector((state: RootState) => state.diary);
   const dispatch = useAppDispatch();
       const [open, setOpen] = useState(false);
