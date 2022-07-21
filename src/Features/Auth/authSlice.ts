@@ -12,7 +12,7 @@ interface AuthState {
 export const userLogin = createAsyncThunk(
     'auth/login',
     async (userInfo: {username: string, password: string}) => {
-        const response = await http.post(`/api/auth/login`, userInfo);
+        const response = await http.post(`/api/auth/login`, userInfo, {mode: 'no-cors'});
         return response;
     }
 );
