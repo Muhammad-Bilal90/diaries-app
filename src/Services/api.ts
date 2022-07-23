@@ -45,17 +45,17 @@ const http: AxiosInstance = axios.create({
 });
 
 http.defaults.headers.post['Content-Type'] = 'application/json';
-http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-http.defaults.headers.post['Access-Control-Allow-Methods'] = '*';
-http.defaults.headers.get['Content-Type'] = 'application/json';
-http.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
-http.defaults.headers.get['Access-Control-Allow-Methods'] = '*';
-http.defaults.headers.delete['Content-Type'] = 'application/json';
-http.defaults.headers.delete['Access-Control-Allow-Origin'] = '*';
-http.defaults.headers.delete['Access-Control-Allow-Methods'] = '*';
-http.defaults.headers.put['Content-Type'] = 'application/json';
-http.defaults.headers.put['Access-Control-Allow-Origin'] = '*';
-http.defaults.headers.put['Access-Control-Allow-Methods'] = '*';
+// http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+// http.defaults.headers.post['Access-Control-Allow-Methods'] = '*';
+// http.defaults.headers.get['Content-Type'] = 'application/json';
+// http.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
+// http.defaults.headers.get['Access-Control-Allow-Methods'] = '*';
+// http.defaults.headers.delete['Content-Type'] = 'application/json';
+// http.defaults.headers.delete['Access-Control-Allow-Origin'] = '*';
+// http.defaults.headers.delete['Access-Control-Allow-Methods'] = '*';
+// http.defaults.headers.put['Content-Type'] = 'application/json';
+// http.defaults.headers.put['Access-Control-Allow-Origin'] = '*';
+// http.defaults.headers.put['Access-Control-Allow-Methods'] = '*';
 
 http.interceptors.response.use(
   async (response: AxiosResponse): Promise<any> => {

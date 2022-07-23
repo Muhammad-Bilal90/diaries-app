@@ -12,7 +12,7 @@ interface AuthState {
 export const userLogin = createAsyncThunk(
     'auth/login',
     async (userInfo: {username: string, password: string}) => {
-        const response = await http.post(`/api/auth/login`, userInfo);
+        const response = await http.post(`/auth/login`, userInfo);
         return response;
     }
 );
@@ -20,7 +20,7 @@ export const userLogin = createAsyncThunk(
 export const userSignup = createAsyncThunk(
     'auth/signup',
     async (userInfo: {username: string; email: string; password: string}) => {
-        const response = await http.post(`/api/auth/signup`, userInfo);
+        const response = await http.post(`/auth/signup`, userInfo);
         return response;
     }
 );

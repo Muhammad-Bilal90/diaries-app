@@ -54,7 +54,7 @@ const Diary: FC<Props> = ({ id, title, type }) => {
     currentDiary &&
       setEditData({ title: currentDiary[0].title, type: currentDiary[0].type });
     http
-      .get<null, { entries: Entry[] }>(`/api/diaries/entries/${id}`)
+      .get<null, { entries: Entry[] }>(`/diaries/entries/${id}`)
       .then(({ entries }) => {
         setCount(entries.length);
       });

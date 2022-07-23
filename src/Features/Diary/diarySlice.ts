@@ -10,7 +10,7 @@ interface DiaryState {
 export const createDiary = createAsyncThunk(
     'diary/add',
     async (data: { title: string, type: 'private' | 'public', userId: string,}) => {
-        const response = await http.post(`/api/diaries/`, data);
+        const response = await http.post(`/diaries/`, data);
         return response;
     }
 );
@@ -19,7 +19,7 @@ export const updateDiary = createAsyncThunk(
     'diary/update',
     async (data: { title: string, type: 'private' | 'public', id?: string,}) => {
         const { id, ...updatedData } = data;
-        const response = await http.put(`/api/diaries/${id}`, updatedData);
+        const response = await http.put(`/diaries/${id}`, updatedData);
         return response;
     }
 );
@@ -27,7 +27,7 @@ export const updateDiary = createAsyncThunk(
 export const getDiaries = createAsyncThunk(
     'diaries/getall',
     async (id: string) => {
-    const response = await http.get(`api/diaries/${id}`);
+    const response = await http.get(`/diaries/${id}`);
     return response;
     }
 );

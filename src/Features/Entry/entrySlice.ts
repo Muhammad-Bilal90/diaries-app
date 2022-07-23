@@ -10,7 +10,7 @@ interface EntryState {
 export const createEntry = createAsyncThunk(
     'entry/add',
     async (data: {title: string, content: string, diaryId?: string}) => {
-        const response = await http.post(`/api/diaries/entry`, data);
+        const response = await http.post(`/diaries/entry`, data);
         return response;
     }
 );
@@ -19,7 +19,7 @@ export const updateEntry = createAsyncThunk(
     'entry/update',
     async (data: { title: string; content: string; id?: string}) => {
         const {id, ...updatedData} = data
-        const response = await http.put(`/api/diaries/entry/${id}`, updatedData);
+        const response = await http.put(`/diaries/entry/${id}`, updatedData);
         return response;
     }
 );
@@ -27,7 +27,7 @@ export const updateEntry = createAsyncThunk(
 export const getEntries = createAsyncThunk(
     'diaries/getall',
     async (id?: string) => {
-        const response = await http.get(`/api/diaries/entries/${id}`);
+        const response = await http.get(`/diaries/entries/${id}`);
         return response;
     }
 );
