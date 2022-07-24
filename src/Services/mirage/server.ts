@@ -59,6 +59,8 @@ export const setupServer = (env?: string): Server => {
 
             this.del('/diaries/:id', diary.removeDiary);
             this.del('/diaries/entries/:id/:id1', entry.removeEntry);
+
+            this.passthrough();
         }
     })
 }
