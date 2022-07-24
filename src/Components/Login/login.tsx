@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../Store/index";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login: FC = () => {
   const [user, setUser] = useState<{username: string, password: string}>({
@@ -71,7 +72,7 @@ const Login: FC = () => {
               </div>
             </div>
             <div className="d-flex justify-content-between form-group">
-              Don't have an account? Sign Up.
+              Don't have an account? <Link to='/signup'>Sign Up.</Link>
               {loading ? (
                 <button type="submit" className="btn btn-block">
                   Loading...
