@@ -41,7 +41,11 @@ import { showAlert } from '../util';
 
 const http: AxiosInstance = axios.create({
   baseURL: 'https://diaries.app',
-  // headers: {'Access-Control-Allow-Origin': '*'}
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+  }
 });
 
 http.defaults.headers.post['Content-Type'] = 'application/json';
