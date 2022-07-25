@@ -4,7 +4,6 @@ import { RootState } from "../../Store/rootReducer";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../Store/index";
 import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Login: FC = () => {
@@ -12,8 +11,6 @@ const Login: FC = () => {
     username: "",
     password: "",
   });
-
-  const navigateto = useNavigate();
 
   const { loading } = useSelector(
     (state: RootState) => state.auth

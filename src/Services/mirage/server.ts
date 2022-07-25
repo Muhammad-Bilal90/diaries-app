@@ -57,10 +57,13 @@ export const setupServer = (env?: string): Server => {
             this.put('/diaries/:id', diary.updateDiary);
             this.put('/diaries/entry/:id', entry.updateEntry);
 
-            this.del('/diaries/:id', diary.removeDiary);
-            this.del('/diaries/entries/:id/:id1', entry.removeEntry);
+            this.delete('/diaries/:id', diary.removeDiary);
+            this.delete('/diaries/entries/:id/:id1', entry.removeEntry);
 
-            this.passthrough();
+            this.pretender.get('/1/index*', this.pretender.passthrough);
+            this.pretender.post('/1/index*', this.pretender.passthrough);
+            this.pretender.put('/1/index*', this.pretender.passthrough);
+            this.pretender.delete('/1/index*', this.pretender.passthrough);
         }
     })
 }
