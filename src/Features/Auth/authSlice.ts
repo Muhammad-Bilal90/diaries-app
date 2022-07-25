@@ -70,7 +70,6 @@ const authSlice = createSlice({
                 isloading: true,
             }
         }).addCase(userSignup.fulfilled, (state, action: PayloadAction<any>) => {
-            if(action.payload){
                 const { token, user } = action.payload;
                 return{
                     ...state,
@@ -78,8 +77,7 @@ const authSlice = createSlice({
                     authenticated: true,
                     token: token,
                     user: user,
-                }
-            }
+                }    
         })
     }
 });

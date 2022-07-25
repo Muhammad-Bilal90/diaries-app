@@ -23,7 +23,7 @@ const Login: FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(userLogin(user));
-    navigateto('/');
+    // navigateto('/');
     console.log("Logged In");
   };
 
@@ -72,7 +72,7 @@ const Login: FC = () => {
               </div>
             </div>
             <div className="d-flex justify-content-between form-group">
-              Don't have an account? <Link to='/signup'>Sign Up.</Link>
+              Don't have an account?<Link to='/signup'>Sign Up.</Link>
               {loading ? (
                 <button type="submit" className="btn btn-block">
                   Loading...

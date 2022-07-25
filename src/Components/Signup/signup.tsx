@@ -30,7 +30,7 @@ const Signup: FC = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  console.log(user);
   return (
     <>
       <div
@@ -78,13 +78,13 @@ const Signup: FC = () => {
             </div>
             <div className="d-flex justify-content-between form-group">
               Already have an account? Sign In.
-              {loading ? (
-                <button type="submit" className="btn btn-block">
+              {loading ? 
+                <Button type="submit" className="btn btn-block">
                   Loading...
-                </button>
-              ) : (
-                <Button variant="outlined">Sign Up</Button>
-              )}
+                </Button>
+                : 
+                <Button type='submit' variant="outlined">Sign Up</Button>
+              }
             </div>
           </form>
         </div>
