@@ -21,6 +21,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/yup": "^0.29.14",
     "axios": "^0.27.2",
+    "cors": "^2.8.5",
     "dayjs": "^1.11.4",
     "markdown-to-jsx": "^7.1.7",
     "miragejs": "^0.1.45",
