@@ -1,6 +1,4 @@
-import { Outlet } from "react-router-dom";
-import Login from "./Components/Login/login";
-import Home from "./Components/Home/home";
+import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "./Store/rootReducer";
 
@@ -8,12 +6,12 @@ export const PrivateRoutes = () => {
 
     const { authenticated } = useSelector((state: RootState) => state.auth);
 
-    return authenticated === true ? <Outlet /> : <Login />;
+    return authenticated === true ? <Outlet /> : <Navigate to="/login" />;
 }
 
 export const PublicRoute = () => {
 
     const { authenticated } = useSelector((state: RootState) => state.auth);
     
-    return authenticated === false ? <Outlet/> : <Home />       
+    return authenticated === false ? <Outlet/> : <Navigate to="/" />       
 }
