@@ -1,14 +1,13 @@
 import './App.css';
-import Login from './Components/Login/login';
-import Signup from './Components/Signup/signup';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header/header';
+import Home from './Components/Home/home';
 import Entries from './Components/Entries/entries';
+import Login from './Components/Login/login';
+import Signup from './Components/Signup/signup';
 import { PrivateRoutes, PublicRoute} from './Routers';
-import Home from './Components/Home/Home';
 
 function App() {
-
 
   return (
     <>

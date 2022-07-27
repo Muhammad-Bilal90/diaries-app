@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Login from "./Components/Login/login";
-import Home from "./Components/Home/Home";
+import Home from "./Components/Home/home";
 import { useSelector } from "react-redux";
 import { RootState } from "./Store/rootReducer";
 
