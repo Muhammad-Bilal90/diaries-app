@@ -9,6 +9,7 @@ import EntryItem from "../Entry/entry";
 import EntryModal from "../EntryModal/entryModal";
 import { ArrowBackIos } from "@mui/icons-material";
 
+// eslint-disable-next-line
 const Entries: FC = () => {
   const { diaries } = useSelector((state: RootState) => state.diary);
   const { entries } = useSelector((state: RootState) => state.entry);
@@ -27,6 +28,7 @@ useEffect(() => {
     filterDiary &&
       filterDiary[0]?.id &&
       dispatch(getEntries(filterDiary[0]?.id));
+      // eslint-disable-next-line
   }, [diary]);
 
   if (!diary && notFound) return <div>Not Found</div>;

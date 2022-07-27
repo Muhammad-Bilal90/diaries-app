@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../Store/index";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
+// eslint-disable-next-line
 const Login: FC = () => {
   const [user, setUser] = useState<{username: string, password: string}>({
     username: "",

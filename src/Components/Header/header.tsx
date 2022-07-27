@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../Store";
 import { RootState } from "../../Store/rootReducer";
 import { logout } from "../../Features/Auth/authSlice";
+
+// eslint-disable-next-line
 const Header = () => {
   const { authenticated } = useSelector((state: RootState) => state.auth);
   const dispatch = useAppDispatch();

@@ -58,13 +58,13 @@ const Diary: FC<Props> = ({ id, title, type }) => {
       .then(({ entries }) => {
         setCount(entries.length);
       });
-  }, [diaries, id]);
+      // eslint-disable-next-line
+  }, [diaries]);
 
   return (
     <>
       <Card
         className="col-12 col-md-5 col-lg-3 m-2 text-left border border-secondary"
-        // sx={{ minwidth: 150 }}
       >
         <CardContent>
           <Typography variant="h5" gutterBottom>

@@ -6,6 +6,7 @@ import { getDiaries } from "../../Features/Diary/diarySlice";
 import Diary from "../Diary/diary";
 import DiaryModal from "../DiaryModal/diaryModal";
 
+// eslint-disable-next-line
 const Home: FC = () => {
 
     const { diaries } = useSelector((state: RootState) => state.diary);
@@ -15,7 +16,8 @@ const Home: FC = () => {
 
     useEffect(() => {
         user && user?.id && dispatch(getDiaries(user?.id))
-    }, [dispatch, user]);
+    // eslint-disable-next-line
+    }, [dispatch]);
 
     return(
         <>
