@@ -39,7 +39,8 @@ type EditData = {
   type: "private" | "public";
 };
 
-const Diary: FC<Props> = ({ id, title, type }) => {
+// eslint-disable-next-line
+const DiaryList: FC<Props> = ({ id, title, type }) => {
   const classes = useStyles();
   const [editData, setEditData] = useState<EditData>({
     title: "",
@@ -47,15 +48,13 @@ const Diary: FC<Props> = ({ id, title, type }) => {
   });
   const [count, setCount] = useState(0);
 
-  const { diaries } = useSelector((state: RootState) => state.diary);
+  const {diaries} = useSelector((state: RootState) => state.diary);
 
   useEffect(() => {
-    const currentDiary = diaries.filter((diary) => diary?.id === id);
-    currentDiary &&
-      setEditData({ title: currentDiary[0].title, type: currentDiary[0].type });
-    http
-      .get<null, { entries: Entry[] }>(`/diaries/entries/${id}`)
-      .then(({ entries }) => {
+    const currentDiary = diaries.filter(diary => diary.id === id);
+    currentDiary && setEditData({ title: currentDiary[0].title, type: currentDiary[0].type });
+    http.get<null, { entries: Entry[] }>(`/api/diaries/entries/${id}`)
+    .then(({ entries }) => {
         setCount(entries.length);
       });
       // eslint-disable-next-line
@@ -85,8 +84,8 @@ const Diary: FC<Props> = ({ id, title, type }) => {
             id={id}
             editInfo={editData}
           />  
-          <Link to={`/${id}/entries`}>
-            <Button className={classes.modalButton} size="small">
+          <Link to={`/${id}/entries`} style={{ textDecoration: "none", }}>
+            <Button className={classes.modalButton} size='small'>
               Enteries
             </Button>
           </Link>
@@ -96,4 +95,4 @@ const Diary: FC<Props> = ({ id, title, type }) => {
   );
 };
 
-export default Diary;
+export default DiaryList;

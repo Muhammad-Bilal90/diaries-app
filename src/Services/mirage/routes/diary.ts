@@ -33,7 +33,7 @@ export const create = ( schema: any, req: Request): DiaryResponse | Response => 
             diary: diary.attrs,
         }
     } catch(error){
-        return handleErrors(null, "Faoled to create Diary");
+        return handleErrors(null, "Failed to create Diary");
     }
 }
 

@@ -12,7 +12,7 @@ interface AuthState {
 export const userLogin = createAsyncThunk(
     'auth/login',
     async (userInfo: {username: string, password: string}) => {
-        const response = await http.post(`/auth/login`, userInfo);
+        const response = await http.post(`/api/auth/login`, userInfo);
         return response;
     }
 );
@@ -20,7 +20,7 @@ export const userLogin = createAsyncThunk(
 export const userSignup = createAsyncThunk(
     'auth/signup',
     async (userInfo: {username: string; email: string; password: string}) => {
-        const response = await http.post(`/auth/signup`, userInfo);
+        const response = await http.post(`/api/auth/signup`, userInfo);
         return response;
     }
 );
@@ -49,13 +49,10 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(userLogin.pending, (state, action: PayloadAction<any>) => {
-            return {
-                ...state,
-                isloading: true,
-            }
+                state.loading = true;
         }).addCase(userLogin.fulfilled, (state, action: PayloadAction<any>) => {
             if(action.payload){
-                const { token, user } = action.payload;
+                const {token, user} = action.payload;
                 return{
                     ...state,
                     loading: false,
@@ -64,13 +61,16 @@ const authSlice = createSlice({
                     user: user,
                 }
             }
-        }).addCase(userSignup.pending, (state, action: PayloadAction<any>) => {
-            return {
-                ...state,
-                isloading: true,
+            else {
+                return {
+                    ...state,
+                    loading: false
+                }
             }
+        }).addCase(userSignup.pending, (state, action: PayloadAction<any>) => {
+                state.loading = true;
         }).addCase(userSignup.fulfilled, (state, action: PayloadAction<any>) => {
-                const { token, user } = action.payload;
+                const {token, user} = action.payload;
                 return{
                     ...state,
                     loading: false,

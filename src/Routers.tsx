@@ -1,5 +1,6 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Login from "./Components/Login/login";
+import Home from "./Components/Home/Home";
 import { useSelector } from "react-redux";
 import { RootState } from "./Store/rootReducer";
 
@@ -14,5 +15,5 @@ export const PublicRoute = () => {
 
     const { authenticated } = useSelector((state: RootState) => state.auth);
     
-    return authenticated === false ? <Outlet/> : <Navigate to='/'/>       
+    return authenticated === false ? <Outlet/> : <Home />       
 }

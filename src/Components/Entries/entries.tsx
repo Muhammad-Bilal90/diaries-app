@@ -13,17 +13,15 @@ import { ArrowBackIos } from "@mui/icons-material";
 const Entries: FC = () => {
   const { diaries } = useSelector((state: RootState) => state.diary);
   const { entries } = useSelector((state: RootState) => state.entry);
-  const dispatch = useAppDispatch();
-
   const [diary, setDiary] = useState<Diary | null>();
   const [notFound, setNotFound] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
   const { id } = useParams();
 
-
-useEffect(() => {
+  useEffect(() => {
     dispatch(clearEntries());
-    const filterDiary = diaries.filter((diary) => diary.id === id);
+    const filterDiary = diaries.filter((diary) => diary?.id === id);
     filterDiary ? setDiary(filterDiary[0]) : setNotFound(true);
     filterDiary &&
       filterDiary[0]?.id &&
@@ -56,7 +54,7 @@ useEffect(() => {
         <hr />
         <div className="container">
           <div className="row justify-content-center">
-            {entries.length > 0 &&
+            {entries && entries.length > 0 &&
               entries.map((entry) => (
                 <EntryItem entry={entry} key={entry?.id} />
               ))}

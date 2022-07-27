@@ -1,23 +1,25 @@
-import React, { FC, useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../Store";
 import { RootState } from "../../Store/rootReducer";
 import { getDiaries } from "../../Features/Diary/diarySlice";
-import Diary from "../Diary/diary";
+import DiaryList from "../Diary/diary";
 import DiaryModal from "../DiaryModal/diaryModal";
 
 // eslint-disable-next-line
 const Home: FC = () => {
 
-    const { diaries } = useSelector((state: RootState) => state.diary);
-    const { user } = useSelector((state: RootState) => state.auth);
-
+    const {user} = useSelector((state: RootState) => state.auth);
+    const diaries = useSelector((state: RootState) => state.diary.diaries);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        user && user?.id && dispatch(getDiaries(user?.id))
-    // eslint-disable-next-line
-    }, [dispatch]);
+            user && user?.id && dispatch(getDiaries(user?.id));
+            // eslint-disable-next-line
+        }, [dispatch]);
+        
+        // console.log(diaries);
+        // console.log(user?.id);
 
     return(
         <>
@@ -30,11 +32,11 @@ const Home: FC = () => {
                 <div className="container" >
                     <div className="row justify-content-center">
                     {
-                        diaries.length > 0 &&
+                        diaries && diaries.length > 0 &&
                         diaries.map(diary => (
-                            <Diary id={diary?.id} title={diary?.title} type={diary?.type} key={diary?.id}/>
+                            <DiaryList title={diary?.title} id={diary?.id} key={diary?.id} type={diary?.type}/>
                         ))
-                    }
+                        }
                     </div>
                 </div>
             </div>

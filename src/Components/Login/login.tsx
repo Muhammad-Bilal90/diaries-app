@@ -13,9 +13,7 @@ const Login: FC = () => {
     password: "",
   });
 
-  const { loading } = useSelector(
-    (state: RootState) => state.auth
-  );
+  const { loading } = useSelector((state: RootState) => state.auth);
   const dispatch = useAppDispatch();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -36,7 +34,7 @@ const Login: FC = () => {
     });
   };
 
-  console.log(user);
+  // console.log(user);
 
   return (
     <>
@@ -70,11 +68,11 @@ const Login: FC = () => {
               </div>
             </div>
             <div className="d-flex justify-content-between form-group">
-            <Link to='/signup'>Don't have an account?Sign Up.</Link>
+            <Link to='/signup'>Don't have an account? Sign Up.</Link>
               {loading ? (
-                <button type="submit" className="btn btn-block">
+                <Button type="submit" variant="outlined">
                   Loading...
-                </button>
+                </Button>
               ) : (
                 <Button type="submit" variant="outlined">Sign In</Button>
               )}

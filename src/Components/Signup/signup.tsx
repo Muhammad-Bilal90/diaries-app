@@ -81,7 +81,7 @@ const Signup: FC = () => {
             <div className="d-flex justify-content-between form-group">
               <Link to="/login">Already have an account? Sign In.</Link>
               {loading ? 
-                <Button type="submit" className="btn btn-block">
+                <Button type="submit" variant="outlined">
                   Loading...
                 </Button>
                 : 

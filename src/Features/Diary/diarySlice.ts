@@ -10,7 +10,7 @@ interface DiaryState {
 export const createDiary = createAsyncThunk(
     'diary/add',
     async (data: { title: string, type: 'private' | 'public', userId: string,}) => {
-        const response = await http.post(`/diaries/`, data);
+        const response = await http.post(`/api/diaries/`, data);
         return response;
     }
 );
@@ -19,7 +19,7 @@ export const updateDiary = createAsyncThunk(
     'diary/update',
     async (data: { title: string, type: 'private' | 'public', id?: string,}) => {
         const { id, ...updatedData } = data;
-        const response = await http.put(`/diaries/${id}`, updatedData);
+        const response = await http.put(`/api/diaries/${id}`, updatedData);
         return response;
     }
 );
@@ -27,7 +27,7 @@ export const updateDiary = createAsyncThunk(
 export const getDiaries = createAsyncThunk(
     'diaries/getall',
     async (id: string) => {
-    const response = await http.get(`/diaries/${id}`);
+    const response = await http.get(`/api/diaries/${id}`);
     return response;
     }
 );
@@ -38,7 +38,9 @@ const diarySlice = createSlice({
         diaries: [],
         loading: false,
     } as DiaryState,
-    reducers: {},
+    reducers: {
+
+    },
     extraReducers: (builder) => {
         builder.addCase(createDiary.pending, (state, action: PayloadAction<any>) => {
             state.loading = true;
@@ -61,8 +63,9 @@ const diarySlice = createSlice({
                     diaries: action.payload.diaries,
                     loading: false,
                 }
-            }else {
-                return{
+            }
+            else {
+                return {
                     ...state,
                     loading: false,
                 }

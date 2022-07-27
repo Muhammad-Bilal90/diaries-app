@@ -43,7 +43,7 @@ export const setupServer = (env?: string): Server => {
 
         routes(): void {
             this.urlPrefix = 'https://diaries.app';
-            // this.namespace = 'api'
+            this.namespace = 'api'
             
             this.get('/diaries/entries/:id', entry.getEntries);
             this.get('/diaries/:id', diary.getDiaries);
