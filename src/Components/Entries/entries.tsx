@@ -36,10 +36,12 @@ useEffect(() => {
     <>
       <div>
         <div className="d-flex justify-content-around pt-3">
-          <Link to='/'>
-            <ArrowBackIos className="text-secondary" />
-            <span className="text-secondary">Back to Diaries</span>
-          </Link>
+          <span>
+            <Link to='/'>
+              <ArrowBackIos className="text-secondary" />
+              <span className="text-secondary">Back to Diaries</span>
+            </Link>
+          </span>  
           {diary && (
             <EntryModal
               btnTitle={"Add Entry"}
