@@ -27,7 +27,7 @@ useEffect(() => {
     filterDiary &&
       filterDiary[0]?.id &&
       dispatch(getEntries(filterDiary[0]?.id));
-  }, [diary, diaries, dispatch, id]);
+  }, [diary]);
 
   if (!diary && notFound) return <div>Not Found</div>;
   else if (!diary && !notFound) return <div>Loading ...</div>;
@@ -36,12 +36,10 @@ useEffect(() => {
     <>
       <div>
         <div className="d-flex justify-content-around pt-3">
-          <span>
-            <Link to='/'>
-              <ArrowBackIos className="text-secondary" />
-              <span className="text-secondary">Back to Diaries</span>
-            </Link>
-          </span>  
+          <Link to='/'>
+            <ArrowBackIos className="text-secondary" />
+            <span className="text-secondary">Back to Diaries</span>
+          </Link>
           {diary && (
             <EntryModal
               btnTitle={"Add Entry"}
