@@ -27,7 +27,7 @@ useEffect(() => {
     filterDiary &&
       filterDiary[0]?.id &&
       dispatch(getEntries(filterDiary[0]?.id));
-  }, [diary]);
+  }, [diary, diaries, dispatch, id]);
 
   if (!diary && notFound) return <div>Not Found</div>;
   else if (!diary && !notFound) return <div>Loading ...</div>;
