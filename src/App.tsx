@@ -17,10 +17,8 @@ function App() {
       <Header />
       <Routes>
         <Route element={<PrivateRoutes />}>
-          <Route path='/'>
-            <Route path=':id/entries/' element={<Entries />} />
-            <Route path='' element={<Home />} />
-          </Route>
+            <Route path='/:id/entries/' element={<Entries />} />
+            <Route path='/' element={<Home />} />
         </Route>
         <Route element={<PublicRoute />}>   
             <Route path='/login' element={<Login />} />

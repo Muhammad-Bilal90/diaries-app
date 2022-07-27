@@ -19,21 +19,6 @@ const Entries: FC = () => {
 
   const { id } = useParams();
 
-//   useEffect(() => {
-//     dispatch(clearEntries());
-//     const filteredDiary = diaries.filter((diary) => diary.id === id);
-//     filteredDiary ? setDiary(filteredDiary[0]) : setNotFound(true);
-//     filteredDiary &&
-//       filteredDiary[0]?.id &&
-//       dispatch(getEntries(filteredDiary[0]?.id));
-//   }, [diary]);
-
-//   if (!diary && notFound) {
-//     return <h3>Not Found!</h3>;
-//   } else if (!diary && !notFound) {
-//     return <h3>Loading...</h3>;
-//   }
-
 
 useEffect(() => {
     dispatch(clearEntries());
@@ -42,7 +27,6 @@ useEffect(() => {
     filterDiary &&
       filterDiary[0]?.id &&
       dispatch(getEntries(filterDiary[0]?.id));
-    // eslint-disable-next-line
   }, [diary]);
 
   if (!diary && notFound) return <div>Not Found</div>;
@@ -56,13 +40,6 @@ useEffect(() => {
             <ArrowBackIos className="text-secondary" />
             <span className="text-secondary">Back to Diaries</span>
           </Link>
-          {/* <DiaryModal
-            btnTitle={"Create Diary"}
-            title={"Create Diary"}
-            id={""}
-            mode={"add"}
-            editInfo={{ title: "", type: "private" }}
-          /> */}
           {diary && (
             <EntryModal
               btnTitle={"Add Entry"}

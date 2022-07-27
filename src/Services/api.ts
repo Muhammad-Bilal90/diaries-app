@@ -1,41 +1,3 @@
-// import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
-// import { showAlert } from '../util';
-
-// const http: AxiosInstance = axios.create({
-//     baseURL: 'https://diaries.app',
-// });
-
-// http.defaults.headers.post['Content-Type'] = 'application/json';
-
-// http.interceptors.response.use(
-//     async (response: AxiosResponse): Promise<any> => {
-//         if (response.status >= 200 && response.status < 300) {
-//             return response.data;
-//         }
-//     },
-//     (error: AxiosError) => {
-//         const { response, request }: {
-//             response?: AxiosResponse;
-//             request?: XMLHttpRequest;
-//         } = error;
-
-//         if (response) {
-//             if (response.status >= 400 && response.status < 500) {
-//                 showAlert(response.data?.data?.message, "error");
-//                 return null;
-//             }
-//         }else if(request){
-//             showAlert('Request failed, please try again', 'error');
-//             return null;
-//         }
-
-//         return Promise.reject(error);
-//     }
-// );
-
-// export default http;
-
-
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 import { showAlert } from '../util';
 
@@ -44,17 +6,6 @@ const http: AxiosInstance = axios.create({
 });
 
 http.defaults.headers.post['Content-Type'] = 'application/json';
-// http.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-// http.defaults.headers.post['Access-Control-Allow-Methods'] = '*';
-// http.defaults.headers.get['Content-Type'] = 'application/json';
-// http.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
-// http.defaults.headers.get['Access-Control-Allow-Methods'] = '*';
-// http.defaults.headers.delete['Content-Type'] = 'application/json';
-// http.defaults.headers.delete['Access-Control-Allow-Origin'] = '*';
-// http.defaults.headers.delete['Access-Control-Allow-Methods'] = '*';
-// http.defaults.headers.put['Content-Type'] = 'application/json';
-// http.defaults.headers.put['Access-Control-Allow-Origin'] = '*';
-// http.defaults.headers.put['Access-Control-Allow-Methods'] = '*';
 
 http.interceptors.response.use(
   async (response: AxiosResponse): Promise<any> => {

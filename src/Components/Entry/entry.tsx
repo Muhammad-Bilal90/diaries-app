@@ -27,13 +27,6 @@ const EntryItem: FC<Props> = ({ entry }) => {
           </div>
         </CardContent>
         <CardActions>
-          {/* <DiaryModal
-            btnTitle={"Edit"}
-            title={"Edit Diary"}
-            mode={"edit"}
-            id={id}
-            editInfo={editData}
-          /> */}
           <EntryModal
             btnTitle={"Edit Entry"}
             id={entry?.id}

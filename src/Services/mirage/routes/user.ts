@@ -13,9 +13,6 @@ function randomBytes(num: number){
    return text;     
 }
 
-// console.log(randomBytes(8));
-// console.log(randomBytes(8));
-// console.log(randomBytes(8));
 const generateToken = () => randomBytes(8);
 
 export interface AuthResponse {
@@ -60,8 +57,3 @@ export const signup = (schema: any, req: Request): AuthResponse | Response => {
         token,
     }
 }
-
-// export default {
-//     login,
-//     signup,
-// }

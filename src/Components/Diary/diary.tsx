@@ -62,18 +62,6 @@ const Diary: FC<Props> = ({ id, title, type }) => {
 
   return (
     <>
-      {/* <div>
-                <div>
-                    <div>
-                        <h4>{title}</h4>
-                        <span>{type}</span>
-                        <span>{count} Entries</span>
-                    </div>
-                    <DiaryModal btnTitle={'Edit'} title={'Edit Diary'} mode={'edit'} id={id} editInfo={editData} />
-                    <button>Entries</button>
-                </div>
-            </div> */}
-
       <Card
         className="col-12 col-md-5 col-lg-3 m-2 text-left border border-secondary"
         // sx={{ minwidth: 150 }}
@@ -97,7 +85,7 @@ const Diary: FC<Props> = ({ id, title, type }) => {
             id={id}
             editInfo={editData}
           />  
-          <Link to={`${id}/entries`}>
+          <Link to={`/${id}/entries`}>
             <Button className={classes.modalButton} size="small">
               Enteries
             </Button>
