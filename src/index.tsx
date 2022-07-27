@@ -7,9 +7,9 @@ import { setupServer } from './Services/mirage/server';
 import store from './Store';
 import { Provider } from 'react-redux';
 
-if(process.env.NODE_ENV === 'development'){
+// if(process.env.NODE_ENV === 'development'){
   setupServer();
-}
+// }
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
